@@ -2,8 +2,11 @@
     session_start();
     include $_SERVER['DOCUMENT_ROOT'] . '/bd/plantillas/master.php';
     include $_SERVER['DOCUMENT_ROOT'] . '/bd/librerias/bd.php';
+   
+    $error = isset($_SESSION['error']);
+
     $ciudades = selectAllCiudades();
-    if (isset($_SESSION['error']))
+    if (isset($_SESSION['error']) && !$error)
     {
         $error = true;
     }
